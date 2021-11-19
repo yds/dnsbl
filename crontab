@@ -1,0 +1,6 @@
+MAILTO=BlackMail@example.com
+PATH=~/bin:/usr/local/bin:/usr/bin:/bin
+#
+#minute	hour	mday	month	wday	command
+#
+15,45	*	*	*	*	dnsbl example.com

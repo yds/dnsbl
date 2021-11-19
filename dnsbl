@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+''' CLI DNSBL checker
+
+MIT License — this software is open source.
+
+Copyright © 2021, Yarema <yds@Necessitu.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+'''
+import sys
+import yaml
+import socket
+import argparse
+
+__version__ = '0.1.0'
+encoding = 'utf-8'
+check = ('https://MultiRBL.Valli.org/lookup/{}.html',
+         'https://HetrixTools.com/blacklist-check/{}')
+conf = '/etc/dnsbl.yml'
+LRED = '\033[1;31m'
+LGRN = '\033[1;32m'
+NRML = '\033[m'
+
+#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
+def gethostbyname(host):
+    '''resolve hostname'''
+    try:
+        return tuple(addr[4][0]
+                    for addr in socket.getaddrinfo(host, 0,
+                        family=socket.AddressFamily.AF_INET,
+                        proto=socket.IPPROTO_UDP))
+    except Exception as e:
+        if args.v:
+            print(f'{LRED}{e} {LGRN}[not listed]{NRML} {host}', file=sys.stderr)
+    return None
+
+#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
+def query(addr):
+    '''query if given IP address is blacklisted'''
+    zones = yaml.load(open(conf), Loader=yaml.CSafeLoader)
+    reverse = '.'.join(reversed(addr.split('.')))
+    results = []
+    for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
+        dnsbl = f'{reverse}.{zone}.'
+        result = gethostbyname(dnsbl)
+        if result:
+            if zones[zone]:
+                dnsbl = f'{dnsbl}\t{zones[zone].format(addr)}'
+            results.append((dnsbl, result))
+    if results:
+        print(f'\n\t{addr} is BLACKLISTED:\n')
+        for url in check: print(url.format(addr))
+        for dnsbl, result in results:
+            dnsbl = dnsbl.split('\t')
+            print()
+            if len(dnsbl) > 2: print(dnsbl[2]) # description
+            if len(dnsbl) > 1: print(dnsbl[1]) # URL
+            for code in result:
+                print(f'[{code}]\t{dnsbl[0]}')
+        return tuple(results)
+    return None
+
+#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
+def multirbl(verbose=True, zones={}):
+    '''dump sorted YAML of "alive" DNSBL zones from MultiRBL.Valli.org'''
+    from urllib.request import urlopen
+    from html.parser import unescape
+    with urlopen('https://MultiRBL.Valli.org/list/') as multirbl:
+        start = '<h2>dead' if zones else '<h2>alive'
+        parse = False
+        table = False
+        for zone in multirbl:
+            zone = unescape(zone.decode(encoding).strip()).split('</td><td>')
+            if zone[0].startswith(start):
+                parse = True
+            elif zone[0] == '</table>':
+                parse = False
+                table = False
+            elif table:
+                if start == '<h2>alive' and zone[3] == 'ipv4' and zone[6] == 'b' and '.' in zone[2]:
+                    zone[1] = zone[1].split('"')
+                    zone[1][2] = zone[1][2][1:].split('<')[0].strip()
+                    zones[zone[2]] = f'{zone[1][1]}\t{zone[1][2]}'
+                elif start == '<h2>dead' and zone[2] in zones:
+                    del zones[zone[2]]
+            elif parse and zone[0] == '<table>':
+                table = True
+    if verbose:
+        for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
+            print(f'{zone}: {zones[zone]}')
+    return zones
+
+#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
+def zones():
+    '''dump sorted YAML of local DNSBL zones merged with current MultiRBL zones'''
+    multi = multirbl(verbose=False)                 # load all "alive" MultiRBL zones
+    zones = multi | yaml.load(open(conf), Loader=yaml.CSafeLoader) # merge local zones
+    zones = multirbl(verbose=False, zones=zones)                  # prune "dead" zones
+    for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
+        if zones[zone]:
+            zones[zone] = f' {zones[zone]}'
+        elif zone in multi:
+            zones[zone] = f' {multi[zone]}'
+        else:
+            zones[zone] = ''
+        print(f'{zone}:{zones[zone]}')
+    return zones
+
+#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
+if __name__ == '__main__':
+    args = argparse.ArgumentParser(
+        description='dnsbl checks if an IP address is blacklisted by any of '
+                    'the DNSBL sevices commonly subscribed by SPAM filters.')
+    args.add_argument('-l', action='store_true', help='List sorted DNSBL zones')
+    args.add_argument('-m', action='store_true', help='List MultiRBL zones')
+    args.add_argument('-v', action='store_true', help='Print verbose results')
+    args.add_argument('host', type=str, nargs='?', help='FQDN or IP address to check')
+    args = args.parse_args()
+
+    if args.host:
+        for addr in gethostbyname(args.host):
+            query(addr)
+    elif args.l:
+        zones()
+    elif args.m:
+        multirbl()
+    else:
+        sys.exit(f'{LRED}Please specify an IP address as a parameter.{NRML}')
+
+#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
+# EOF

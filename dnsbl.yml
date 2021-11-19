@@ -1,0 +1,240 @@
+bl.mav.com.br: http://www.emailcomseguranca.com.br/mav-bl/	MAV BL
+openproxy.bls.digibase.ca: http://bls.digibase.ca/DNSBL	Digibase BLS Open Proxy
+proxyabuse.bls.digibase.ca: http://bls.digibase.ca/DNSBL	Digibase BLS Proxy Abuse
+spambot.bls.digibase.ca: http://bls.digibase.ca/DNSBL	Digibase BLS Spambot
+rbl2.triumf.ca: http://rbl2.triumf.ca/	TRIUMF.ca DNSBL
+ipbl.zeustracker.abuse.ch: https://zeustracker.abuse.ch/	abuse.ch ZeuS Tracker IP
+spamrbl.imp.ch: http://antispam.imp.ch/04-spamlist.html?lng=1	ImproWare IP based spamlist
+wormrbl.imp.ch: http://antispam.imp.ch/03-wormlist.html?lng=1	ImproWare IP based wormlist
+rbl.lugh.ch: https://lugh.ch/dnsbl.html	lugh.ch DNSBL
+dnsrbl.swinog.ch: http://antispam.imp.ch/06-dnsbl.php?lng=1	Swinog DNSRBL
+uribl.swinog.ch: http://antispam.imp.ch/	Swinog URIBL
+blacklist.woody.ch: http://blacklist.woody.ch/rblcheck.php3	Woody's SMTP Blacklist IPv4
+block.ascams.com: http://ascams.com/category/rbl/	Ascams.com Block
+superblock.ascams.com: http://ascams.com/category/rbl/	Ascams.com Superblock
+rbl.blockedservers.com: http://www.blockedservers.com/	BlockedServers RBL
+netscan.rbl.blockedservers.com: http://www.blockedservers.com/	BlockedServers NetScan RBL
+spam.rbl.blockedservers.com: http://www.blockedservers.com/	BlockedServers Spam RBL
+list.blogspambl.com: http://blogspambl.com/	Blog Spam Blacklist
+dnsbl1.dnsbl.borderware.com: http://www.borderware.com/	borderware.com DNSBL1
+dnsbl2.dnsbl.borderware.com: http://www.borderware.com/	borderware.com DNSBL2
+dnsbl3.dnsbl.borderware.com: http://www.borderware.com/	borderware.com DNSBL3
+dul.dnsbl.borderware.com: http://www.borderware.com/	borderware.com DUL
+dnsbl.cobion.com: http://filterdb.iss.net/dnsblinfo/	IBM DNS Blacklist
+bogons.cymru.com: http://www.team-cymru.org/Services/Bogons/	Cymru Bogon List
+v4.fullbogons.cymru.com: http://www.team-cymru.org/Services/Bogons/	Cymru Fullbogon IPv4 List
+rbl.dns-servicios.com: http://rbl.dns-servicios.com/	DNS-SERVICIOS RBL
+0spam.fusionzero.com: https://0spam.fusionzero.com/	0spam General DNSBL Listings (mirror)
+0spam-n.fusionzero.com: https://0spam.fusionzero.com/	0spam Network DNSBL Listings (mirror)
+0spamtrust.fusionzero.com: https://0spam.fusionzero.com/
+0spamurl.fusionzero.com: https://0spam.fusionzero.com/
+hil.habeas.com: http://www.habeas.com/	Habeas Infringer List
+black.junkemailfilter.com: http://wiki.junkemailfilter.com/index.php/Spam_DNS_Lists	Hostkarma blacklist
+hostkarma.junkemailfilter.com: http://wiki.junkemailfilter.com/index.php/Spam_DNS_Lists	Hostkarma blacklist
+mail-abuse.com: https://ers.trendmicro.com/reputations	Trend Micro Mail Abuse
+q.mail-abuse.com: https://ers.trendmicro.com/reputations	Trend Micro QIL
+r.mail-abuse.com: https://ers.trendmicro.com/reputations	Trend Micro DUL
+cidr.bl.mcafee.com: https://kc.mcafee.com/corporate/index?page=content&id=KB53783	McAfee RBL
+rbl.metunet.com: https://rbl.metunet.com/	Metunet RBL
+dnsbl.forefront.microsoft.com: http://www.microsoft.com/forefront/	Microsoft Forefront DNSBL
+bl.mipspace.com: http://www.mipspace.com/	MIPSpace
+nordspam.com: http://www.NordSpam.com/	NordSpam IP Blacklist
+bl.nordspam.com: https://www.nordspam.com/	NordSpam IP Blacklist
+bl.nszones.com: http://nszones.com/	nsZones.com SBL+Dyn
+dyn.nszones.com: http://nszones.com/	nsZones.com Dyn
+sbl.nszones.com: http://nszones.com/	nsZones.com SBL
+bl.octopusdns.com: https://octopusdns.com/	Octopus RBL Monster
+safe.dnsbl.prs.proofpoint.com: http://www.proofpoint.com/	Proofpoint Dynamic Reputation
+rbl.realtimeblacklist.com: https://realtimeblacklist.com/	realtimeBLACKLIST.COM
+blackholes.scconsult.com: http://www.scconsult.com/blacklist.shtml	Solid Clues Blacklist
+bl.rbl.scrolloutf1.com: http://rbl.scrolloutf1.com/
+bl.score.senderscore.com: http://www.senderscore.org/	SenderScore Blacklist
+feb.spamlab.com: http://www.spamlab.com/	SpamLab FEB
+rbl.spamlab.com: http://www.spamlab.com/	SpamLab RBL
+all.spamrats.com: http://www.spamrats.com/	SpamRATS! all
+auth.spamrats.com: http://www.spamrats.com/rats-auth.php	SpamRATS! Auth
+dyna.spamrats.com: http://www.spamrats.com/rats-dyna.php	SpamRATS! Dyna
+noptr.spamrats.com: http://www.spamrats.com/rats-noptr.php	SpamRATS! NoPtr
+spam.spamrats.com: http://www.spamrats.com/rats-spam.php	SpamRATS! Spam
+psbl.surriel.com: http://psbl.surriel.com/	PSBL (Passive Spam Block List)
+talosintelligence.com: http://TalosIntelligence.com/
+bl.tiopan.com: http://www.tiopan.com/blacklist.php	Tiopan Consulting IP Blacklist
+dbl.tiopan.com: http://www.tiopan.com/blacklist.php	Tiopan Consulting IP Blacklist
+ubl.unsubscore.com: http://blacklist.lashback.com/	Unsubscribe Blacklist UBL
+uribl.com: http://URIbl.com/
+spam.dnsbl.anonmails.de: http://www.anonmails.de/dnsbl.php	anonmails.de DNSBL
+bl.blocklist.de: http://www.blocklist.de/	www.blocklist.de
+dnsbl.darklist.de: https://darklist.de/	darklist.de
+admin.bl.kundenserver.de: http://admin.bl.kundenserver.de/	kundenserver.de admin.bl
+relays.bl.kundenserver.de: http://relaytest.kundenserver.de/	kundenserver.de relays
+schizo-bl.kundenserver.de: http://schizo-bl.kundenserver.de/	kundenserver.de schizo-bl
+spamblock.kundenserver.de: http://spamblock.kundenserver.de/	kundenserver.de spamblock
+worms-bl.kundenserver.de: http://worms-bl.kundenserver.de/	kundenserver.de worms-bl
+dnsbl.madavi.de: https://www.madavi.de/madavibl/	Madavi:BL
+dunk.dnsbl.tuxad.de: http://www.tuxad.de/hartkore.html	tuxad dunk.dnsbl
+hartkore.dnsbl.tuxad.de: http://www.tuxad.de/hartkore.html	tuxad hartkore.dnsbl
+spamsources.fabel.dk: http://www.spamsources.fabel.dk/	spamsources.fabel.dk
+st.technovision.dk: http://st.technovision.dk/	TechnoVision SpamTrap
+dnsbl.abyan.es: http://dnsbl.abyan.es/	dnsbl.abyan.es
+dnsbl.isx.fr: https://bl.isx.fr/	dnsbl.isx.fr
+all.spam-rbl.fr: http://spam-rbl.fr/	Spam-RBL.fr
+pofon.foobar.hu: https://rbl.foobar.hu/	pofon.foobar.hu IP Blacklist
+uribl.pofon.foobar.hu: http://uribl.pofon.foobar.hu/
+singular.ttk.pte.hu: http://singular.ttk.pte.hu/en/	SINGULARis Spam/scam blocklist
+blacklist.netcore.co.in: http://blacklist.netcore.co.in/
+dnsbl.rv-soft.info: http://dnsbl.rv-soft.info/	dnsbl.rv-soft.info
+db.wpbl.info: http://www.wpbl.info/	WPBL - Weighted Private Block List
+spamlist.or.kr: https://www.kisarbl.or.kr/	KISA-RBL
+bl.fmb.la: http://bl.fmb.la/	fmb.la bl
+nsbl.fmb.la: http://nsbl.fmb.la/	fmb.la nsbl
+short.fmb.la: http://short.fmb.la/	fmb.la short
+black.dnsbl.brukalai.lt: https://www.brukalai.lt/	Brukalai.lt DNSBL black
+light.dnsbl.brukalai.lt: https://www.brukalai.lt/	Brukalai.lt DNSBL light
+dnsbl.anticaptcha.net: http://anticaptcha.net/	AntiCaptcha.NET IPv4
+blacklist.mail.ops.asp.att.net: http://att.net/	ops.asp.att.net blacklist mail
+blacklist.sequoia.ops.asp.att.net: http://att.net/	ops.asp.att.net blacklist sequoia
+blacklist.mailrelay.att.net: http://att.net/blocks	mailrelay.att.net blacklist
+rbl.blakjak.net: http://www.blakjak.net/RBL	BlakJak.net RBL
+dul.blackhole.cantv.net: http://abuso.cantv.net/bl/dul	cantv.net dul
+hog.blackhole.cantv.net: http://abuso.cantv.net/bl/hog	cantv.net hog
+rhsbl.blackhole.cantv.net: http://abuso.cantv.net/bl/rhsbl	cantv.net rhsbl
+rot.blackhole.cantv.net: http://abuso.cantv.net/bl/rot	cantv.net rot
+spam.blackhole.cantv.net: http://abuso.cantv.net/bl/spam	cantv.net spam
+rbl.choon.net: https://choon.net/rbl.php	choon.net IPv4 DNSBL
+dnsbl.cyberlogic.net: http://dnsbl.cyberlogic.net/dnsbl.php	Cyberlogic DNSBL
+fnrbl.fast.net: http://www.fast.net/	fnrbl.fast.net
+truncate.gbudb.net: http://GBUdb.com/truncate/truncateTidbits.jsp	Good Bad Ugly db
+rbl.interserver.net: http://rbl.interserver.net/	InterServer BL
+rbl.iprange.net: http://iprange.net/rbl/	IPrange.net RBL
+dnsbl.kempt.net: http://www.kempt.net/dnsbl/	Kempt.net DNS Black List
+spamguard.leadmon.net: http://www.leadmon.net/spamguard/	Leadmon.Net's SpamGuard Listings (LNSG)
+niprbl.mailcleaner.net: https://www.mailcleaner.net/	MailCleaner NIPRBL
+bl.mailspike.net: http://mailspike.org/	Mailspike Blacklist
+rep.mailspike.net: http://mailspike.org/	Mailspike Rep
+z.mailspike.net: http://mailspike.org/	Mailspike Zero-hour Data
+ix.dnsbl.manitu.net: http://www.dnsbl.manitu.net/	NiX Spam DNSBL
+combined.rbl.msrbl.net: http://www.msrbl.com/	MSRBL combined
+images.rbl.msrbl.net: http://www.msrbl.com/	MSRBL images
+phishing.rbl.msrbl.net: http://www.msrbl.com/	MSRBL phishing
+spam.rbl.msrbl.net: http://www.msrbl.com/	MSRBL spam
+virus.rbl.msrbl.net: http://www.msrbl.com/	MSRBL virus
+web.rbl.msrbl.net: http://www.msrbl.com/	MSRBL web
+relays.nether.net: http://puck.nether.net/or/	nether.net (relays)
+unsure.nether.net: http://puck.nether.net/or/	nether.net (unsure)
+dul.pacifier.net: http://pacifier.net/	dul.pacifier.net
+all.s5h.net: http://www.usenix.org.uk/wiki/RBL	s5h.net RBL
+bl.scientificspam.net: http://www.ScientificSPAM.net/	ScientificSPAM.net IP list
+rhsbl.scientificspam.net: http://www.ScientificSPAM.net/
+korea.services.net: http://korea.services.net/	South Korean Network Blocking List
+dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Aggregate zone
+block.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Hosts demanding never be tested by SORBS
+dul.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Dynamic IP Addresses
+escalations.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS netblocks of spam supporting service providers
+http.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Open HTTP Proxies
+misc.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Open other Proxies
+problems.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Aggregate zone (problems)
+proxies.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Aggregate zone (proxies)
+relays.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Aggregate zone (relays)
+safe.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Aggregate zone (safe)
+smtp.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Open SMTP relays
+socks.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Open SOCKS Proxies
+spam.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Spamhost (any time)
+new.spam.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Spamhost (last 48 hours)
+old.spam.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Spamhost (last year)
+recent.spam.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Spamhost (last 28 days)
+web.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS Vulnerable formmailers
+zombie.dnsbl.sorbs.net: http://www.sorbs.net/	SORBS hijacked networks
+aspews.ext.sorbs.net: http://www.aspews.org/	ASPEWS Listings
+l1.bbfh.ext.sorbs.net: http://www.bbfh.org/	BBFH Level 1 (@SORBS)
+l2.bbfh.ext.sorbs.net: http://www.bbfh.org/	BBFH Level 2 (@SORBS)
+l3.bbfh.ext.sorbs.net: http://www.bbfh.org/	BBFH Level 3 (@SORBS)
+l4.bbfh.ext.sorbs.net: http://www.bbfh.org/	BBFH Level 4 (@SORBS)
+rhsbl.sorbs.net: http://www.sorbs.net/
+badconf.rhsbl.sorbs.net: http://www.sorbs.net/
+nomail.rhsbl.sorbs.net: http://www.sorbs.net/
+bl.spamcop.net: http://spamcop.net/bl.shtml	SpamCop Blocking List
+backscatter.spameatingmonkey.net: https://spameatingmonkey.com/services	Spam Eating Monkey SEM-BACKSCATTER
+bl.spameatingmonkey.net: https://spameatingmonkey.com/services	Spam Eating Monkey SEM-BLACK
+netbl.spameatingmonkey.net: https://spameatingmonkey.com/services	Spam Eating Monkey SEM-NETBLACK
+uribl.spameatingmonkey.net: https://spameatingmonkey.com/services	Spam Eating Monkey URI-BLACK
+bsb.spamlookup.net: http://bsb.spamlookup.net/	Blog Spam Blocklist (spamlookup.net)
+dnsbl.spfbl.net: https://spfbl.net/en/dnsbl/	SPFBL.net RBL
+bl.suomispam.net: http://suomispam.net/	Suomispam Blacklist
+gl.suomispam.net: http://suomispam.net/	Suomispam Graylist
+srn.surgate.net: http://surgate.net/
+rbl.tdk.net: http://postmaster.tdc.dk/publish.php?dogtag=f5_ms_po_po_rbl	TDC's RBL
+dnsbl-0.uceprotect.net: http://www.uceprotect.net/	UCEPROTECT Level 0
+dnsbl-1.uceprotect.net: http://www.uceprotect.net/en/index.php?m=3&s=3	UCEPROTECT Level 1
+dnsbl-2.uceprotect.net: http://www.uceprotect.net/en/index.php?m=3&s=4	UCEPROTECT Level 2
+dnsbl-3.uceprotect.net: http://www.uceprotect.net/en/index.php?m=3&s=5	UCEPROTECT Level 3
+dnsbl.zapbl.net: http://zapbl.net/	ZapBL DNSRBL
+rhsbl.zapbl.net: http://zapbl.net/	ZapBL RHSBL
+rbl.zenon.net: http://noc.zenon.net/rbl/	rbl.zenon.net
+dnsbl.beetjevreemd.nl: https://www.beetjevreemd.nl/dnsbl/	dnsbl.beetjevreemd.nl
+blacklist.sci.kun.nl: http://wiki.science.ru.nl/cncz/Email_spam	C&CZ's own black list
+bl.konstant.no: http://bl.konstant.no/	KONSTANT DNSBL
+bl.0spam.org: https://0spam.org/	0spam General DNSBL Listings
+nbl.0spam.org: https://0spam.org/	0spam Network DNSBL Listings
+url.0spam.org: https://0spam.org/	0spam URL DNSBL Listings
+wl.0spam.org: https://0spam.org/	0spam Whitelist DNSBL Listings
+cbl.abuseat.org: http://cbl.abuseat.org/	CBL
+orvedb.aupads.org: http://www.aupads.org/	ANTISPAM-UFRJ orvedb
+rsbl.aupads.org: http://www.aupads.org/	ANTISPAM-UFRJ rsbl
+ips.backscatterer.org: http://www.backscatterer.org/	Backscatterer.org
+b.barracudacentral.org: http://www.barracudacentral.org/rbl/	Barracuda Reputation Block List
+bb.barracudacentral.org: http://www.barracudacentral.org/rbl/	Barracuda Reputation Block List (for SpamAssassin)
+list.bbfh.org: http://www.bbfh.org/	BBFH Level 1
+dnsblchile.org: http://www.dnsblchile.org/	dnsblchile.org
+bl.drmx.org: http://www.drmx.org/	DrMX
+dnsbl.dronebl.org: http://www.dronebl.org/	DroneBL
+rbl.efnet.org: http://efnetrbl.org/	EFnet RBL
+tor.efnet.org: http://efnetrbl.org/	EFnet TOR
+rbl.efnetrbl.org: http://efnetrbl.org/	EFnet RBL mirror
+rbl.ircbl.org: https://ircbl.org/	ircbl
+mail-abuse.blacklist.jippg.org: http://blacklist.jippg.org/	JIPPG's RBL Project (mail-abuse Listings)
+dnsbl.justspam.org: http://www.justspam.org/	JustSpam.org
+bl.nosolicitado.org: http://www.nosolicitado.org/	NoSolicitado.org BL
+bl.worst.nosolicitado.org: http://www.nosolicitado.org/	NoSolicitado.org Worst BL
+spam.pedantic.org: http://www.pedantic.org/	Pedantic.org spam
+access.redhawk.org: http://www.redhawk.org/	Redhawk.org
+rbl.schulte.org: http://rbl.schulte.org/	rbl.schulte.org
+sbl.spamdown.org: https://www.spamdown.org/	Spamdown RBL
+pbl.spamhaus.org: https://Check.Spamhaus.org/listed/?searchterm={}  Spamhaus PBL Policy Block List
+sbl.spamhaus.org: https://Check.Spamhaus.org/listed/?searchterm={}  Spamhaus SBL Spamhaus Block List
+sbl-xbl.spamhaus.org: https://Check.Spamhaus.org/listed/?searchterm={}	Spamhaus SBL-XBL Combined Block List
+xbl.spamhaus.org: https://Check.Spamhaus.org/listed/?searchterm={}  Spamhaus XBL Exploits Block List
+zen.spamhaus.org: https://Check.Spamhaus.org/listed/?searchterm={}  Spamhaus ZEN Combined Block List
+multi.surbl.org: http://www.surbl.org/	SURBL multi (Combined SURBL list)
+dnsbl.tornevall.org: http://dnsbl.tornevall.org/	TornevallNET DNSBL
+free.v4bl.org: http://v4bl.org/	V4BL-FREE/DDNSBL-FREE
+ip.v4bl.org: http://v4bl.org/	V4BL/DDNSBL
+dnsbl.calivent.com.pe: http://dnsbl.calivent.com.pe/	dnsbl.calivent.com.pe
+forbidden.icm.edu.pl: http://sunsite.icm.edu.pl/spam/bh.html	forbidden.icm.edu.pl
+bl.rbl.polspam.pl: https://polspam.pl/	Polspam BL
+bl-h1.rbl.polspam.pl: https://polspam.pl/	Polspam BL-H1
+bl-h2.rbl.polspam.pl: https://polspam.pl/	Polspam BL-H2
+bl-h3.rbl.polspam.pl: https://polspam.pl/	Polspam BL-H3
+bl-h4.rbl.polspam.pl: https://polspam.pl/	Polspam BL-H4
+cnkr.rbl.polspam.pl: https://polspam.pl/	Polspam CNKR
+dyn.rbl.polspam.pl: https://polspam.pl/	Polspam Dyn
+lblip4.rbl.polspam.pl: https://polspam.pl/	Polspam LBLIP4
+rblip4.rbl.polspam.pl: https://polspam.pl/	Polspam RBLIP4
+ip4.bl.zenrbl.pl: https://zenbox.pl/	ZenRBL IP Blocklist
+rbl.abuse.ro: http://www.abuse.ro/	abuse.ro IP RBL
+uribl.abuse.ro: http://www.abuse.ro/	abuse.ro URI RBL
+vote.drbl.caravan.ru: http://drbl.caravan.ru/	DRBL caravan.ru (vote node)
+work.drbl.caravan.ru: http://drbl.caravan.ru/	DRBL caravan.ru (work node)
+vote.drbl.gremlin.ru: http://drbl.gremlin.ru/en.html	DRBL gremlin.ru (vote node)
+work.drbl.gremlin.ru: http://drbl.gremlin.ru/en.html	DRBL gremlin.ru (work node)
+rbl.rbldns.ru: http://rbldns.ru/	rbl.rbldns.ru
+dnsbl.rymsho.ru: http://spam.rymsho.ru/	Rymsho's DNSBL
+netblockbl.spamgrouper.to: http://www.spamgrouper.to/	Spam Grouper Net block list
+dnsbl.mcu.edu.tw: http://www.mcu.edu.tw/	dnsbl.mcu.edu.tw
+dnsbl.net.ua: http://dnsbl.net.ua/	dnsbl.net.ua
+rbl.fasthosts.co.uk: http://www.fasthosts.co.uk/knowledge-base/?article_id=961	Fasthosts RBL
+torexit.dan.me.uk: https://www.dan.me.uk/dnsbl	dan.me.uk (only tor exit nodes)
+bsb.empty.us: http://bsb.empty.us/	Blog Spam Blocklist (empty.us)
+88.blocklist.zap: http://www.microsoft.com/online/exchange-hosted-services.mspx	Frontbridge’s 88.blocklist.zap
+black.mail.abusix.zone: https://lookup.abusix.com/search?q={}	Abusix Mail Intelligence Black list
+dblack.mail.abusix.zone: https://lookup.abusix.com/search?q={}	Abusix Mail Intelligence Domain Blacklist
+exploit.mail.abusix.zone: https://lookup.abusix.com/search?q={}	Abusix Mail Intelligence Exploit list
