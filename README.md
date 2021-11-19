@@ -96,12 +96,12 @@ diff -u /etc/dnsbl.yml /tmp/dnsbl.yml
 should *not* produce _any_ output. Otherwise you will see a unified `diff`
 which you can merge with your production `/etc/dnsbl.yml` as need be.
 
-## Prior Art
+### Prior Art
 
  - [blacklist-check-unix-linux-utility](https://github.com/adionditsak/blacklist-check-unix-linux-utility)
  - [MultiRBL.Valli.org](https://MultiRBL.Valli.org)
  - [HetrixTools.com](https://HetrixTools.com/blacklist-check/)
 
-## License
+### License
 
 [MIT](https://GitHub.com/yds/dnsbl/blob/master/LICENSE "MIT open source")
