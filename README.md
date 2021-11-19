@@ -38,7 +38,7 @@ PATH=~/bin:/usr/local/bin:/usr/bin:/bin
 
 Use with FQDN or IP address
 ```sh
-dnsbl -v domain.tld
+dnsbl -v example.com
 dnsbl -v 118.26.173.212
 ```
 
