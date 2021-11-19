@@ -1,15 +1,15 @@
 # CLI DNSBL checker
 
-Cron friendly CLI DNSBL checker utility.
+Cron friendly CLI [DNSBL][] checker utility.
 
 ### Introduction
 
 Check if a hostname or IP address is blacklisted by any of
-the DNSBL sevices commonly subscribed by SPAM filters.
+the [DNSBL][] sevices commonly subscribed by SPAM filters.
 
 ### Requires
 
-Python 3.9+ with yaml.
+[Python 3.9+](https://www.python.org/dev/peps/pep-0584/) with [PyYAML](https://PyYAML.org).
 
 ### Installation
 
@@ -74,19 +74,19 @@ dnsbl -v 118.26.173.212
 
 ### Blacklist providers
 
-The distributed `dnsbl.yml` file of DNSBL zones to query was compiled
+The distributed `dnsbl.yml` file of [DNSBL][] zones to query was compiled
 from scraping https://HetrixTools.com/blacklist-check/ then running
 `dnsbl -l` to merge http://MultiRBL.Valli.org/list/ "alive" zones and
 prune any zones from the "dead" section.
 
 Running `dnsbl -m` will output a YAML format listing of all the IPv4
-"blacklist" DNSBL zones in the "alive" section of
+"blacklist" [DNSBL][] zones in the "alive" section of
 http://MultiRBL.Valli.org/list/
 
 Running `dnsbl -l` will output a YAML format listing of all the zones
 in the local `/etc/dnsbl.yml` file **plus** all the IPv4 "blacklist"
-DNSBL zones in the "alive" section of http://MultiRBL.Valli.org/list/
-**minus** any matching DNSBL zones from the "dead" section.
+[DNSBL][] zones in the "alive" section of http://MultiRBL.Valli.org/list/
+**minus** any matching [DNSBL][] zones from the "dead" section.
 
 If your `/etc/dnsbl.yml` is upto date then running:
 ```sh
@@ -105,3 +105,5 @@ which you can merge with your production `/etc/dnsbl.yml` as need be.
 ### License
 
 [MIT](https://GitHub.com/yds/dnsbl/blob/master/LICENSE "MIT open source")
+
+[DNSBL]:https://en.wikipedia.org/wiki/Domain_Name_System-based_blackhole_list "Domain Name System-based blackhole list"
