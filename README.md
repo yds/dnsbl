@@ -31,8 +31,8 @@ PATH=~/bin:/usr/local/bin:/usr/bin:/bin
 #
 15,45	*	*	*	*	dnsbl example.com
 ```
-Change the `MAILTO` email address where BLACKLISTED alerts will be sent to.
-Change `dnsbl` target host address to the FQDN or IP address you need to scan.
+ - Change the `MAILTO` email address where BLACKLISTED alerts will be sent to.
+ - Change `dnsbl` target host address to the FQDN or IP address you need to scan.
 
 ### Examples
 
