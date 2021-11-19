@@ -84,16 +84,16 @@ Running `dnsbl -m` will output a YAML format listing of all the IPv4
 http://MultiRBL.Valli.org/list/
 
 Running `dnsbl -l` will output a YAML format listing of all the zones
-in the local `/etc/dnsbl.yml` file *plus* all the IPv4 "blacklist"
+in the local `/etc/dnsbl.yml` file **plus** all the IPv4 "blacklist"
 DNSBL zones in the "alive" section of http://MultiRBL.Valli.org/list/
-*minus* any matching DNSBL zones from the "dead" section.
+**minus** any matching DNSBL zones from the "dead" section.
 
 If your `/etc/dnsbl.yml` is upto date then running:
 ```sh
 dnsbl -l > /tmp/dnsbl.yml
 diff -u /etc/dnsbl.yml /tmp/dnsbl.yml
 ```
-should *not* produce _any_ output. Otherwise you will see a unified `diff`
+should **not** produce _any_ output. Otherwise you will see a unified `diff`
 which you can merge with your production `/etc/dnsbl.yml` as need be.
 
 ### Prior Art
