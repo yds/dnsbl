@@ -1,3 +1,4 @@
+MAILFROM=BlackMail@example.com
 MAILTO=BlackMail@example.com
 PATH=~/bin:/usr/local/bin:/usr/bin:/bin
 #
