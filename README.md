@@ -89,13 +89,14 @@ in the local `/etc/dnsbl.yml` file **plus** all the IPv4 "blacklist"
 [DNSBL][] zones in the "alive" section of http://MultiRBL.Valli.org/list/
 **minus** any matching [DNSBL][] zones from the "dead" section.
 
-If your `/etc/dnsbl.yml` is upto date then running:
+If your `/etc/dnsbl.yml` is upto date then running the following should
+**not** produce _any_ output:
 ```sh
 dnsbl -l > /tmp/dnsbl.yml
 diff -u /etc/dnsbl.yml /tmp/dnsbl.yml
 ```
-should **not** produce _any_ output. Otherwise you will see a unified `diff`
-which you can merge with your production `/etc/dnsbl.yml` as need be.
+Otherwise you will see a unified `diff` which you can merge with your
+production `/etc/dnsbl.yml` as need be.
 
 ### Prior Art
 
