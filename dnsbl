@@ -27,6 +27,9 @@ import sys
 import yaml
 import socket
 import argparse
+from dns.resolver import *
+resolver = Resolver()
+resolver.search = False
 
 __version__ = '0.1.0'
 encoding = 'utf-8'
@@ -38,46 +41,56 @@ LGRN = '\033[1;32m'
 NRML = '\033[m'
 
 #===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
-def gethostbyname(host):
+def resolve(qname, rdtype='A'):
     '''resolve hostname'''
     try:
-        return tuple(addr[4][0]
-                    for addr in socket.getaddrinfo(host, 0,
-                        family=socket.AddressFamily.AF_INET,
-                        proto=socket.IPPROTO_UDP))
-    except Exception as e:
+        return resolver.resolve(qname, rdtype)
+    except (NXDOMAIN, NoAnswer) as e:
         if args.v:
-            print(f'{LRED}{e} {LGRN}[not listed]{NRML} {host}', file=sys.stderr)
+            e = str(e).split(':')[0]
+            print(f'{LRED}{e}{LGRN}: {rdtype}{NRML} {qname}', file=sys.stderr)
+    except NoNameservers as e:
+        if args.v:
+            e = ' '.join(str(e).split(' IN A: ')[0].split()[:-1])
+            print(f'{LRED}{e}{LGRN}: {rdtype}{NRML} {qname}', file=sys.stderr)
+    except Timeout as e:
+        if args.v:
+            print(f'{LRED}{e}{LGRN}: {rdtype}{NRML} {qname}', file=sys.stderr)
     return None
 
 #===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
 def query(addr):
     '''query if given IP address is blacklisted'''
     zones = yaml.load(open(conf), Loader=yaml.CSafeLoader)
+    addr = socket.gethostbyname(addr)
     reverse = '.'.join(reversed(addr.split('.')))
     results = []
     for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
         dnsbl = f'{reverse}.{zone}.'
-        result = gethostbyname(dnsbl)
+        result = resolve(dnsbl)
         if result:
+            txt = resolve(dnsbl, 'TXT')
+            dnsbl = [dnsbl]
             if zones[zone]:
-                dnsbl = f'{dnsbl}\t{zones[zone].format(addr)}'
+                dnsbl += reversed(zones[zone].format(addr).split('\t'))
+            if txt:
+                dnsbl += [str(s).strip('"') for s in txt.rrset]
             results.append((dnsbl, result))
     if results:
         print(f'\n\t{addr} is BLACKLISTED:\n')
-        for url in check: print(url.format(addr))
+        for txt in check: print(txt.format(addr))
         for dnsbl, result in results:
-            dnsbl = dnsbl.split('\t')
             print()
-            if len(dnsbl) > 2: print(dnsbl[2]) # description
-            if len(dnsbl) > 1: print(dnsbl[1]) # URL
-            for code in result:
-                print(f'[{code}]\t{dnsbl[0]}')
+            if len(dnsbl) > 1:
+                for txt in dnsbl[1:]:
+                    print(txt)
+            for txt in result:
+                print(f'[{txt}]\t{dnsbl[0]}')
         return tuple(results)
     return None
 
 #===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
-def multirbl(verbose=True, zones={}):
+def multirbl(zones={}, verbose=False):
     '''dump sorted YAML of "alive" DNSBL zones from MultiRBL.Valli.org'''
     from urllib.request import urlopen
     from html.parser import unescape
@@ -109,9 +122,9 @@ def multirbl(verbose=True, zones={}):
 #===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
 def zones():
     '''dump sorted YAML of local DNSBL zones merged with current MultiRBL zones'''
-    multi = multirbl(verbose=False)                 # load all "alive" MultiRBL zones
+    multi = multirbl()                               # load all "alive" MultiRBL zones
     zones = multi | yaml.load(open(conf), Loader=yaml.CSafeLoader) # merge local zones
-    zones = multirbl(verbose=False, zones=zones)                  # prune "dead" zones
+    zones = multirbl(zones=zones)                                 # prune "dead" zones
     for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
         if zones[zone]:
             zones[zone] = f' {zones[zone]}'
@@ -127,21 +140,15 @@ if __name__ == '__main__':
     args = argparse.ArgumentParser(
         description='dnsbl checks if an IP address is blacklisted by any of '
                     'the DNSBL sevices commonly subscribed by SPAM filters.')
-    args.add_argument('-l', action='store_true', help='List sorted DNSBL zones')
-    args.add_argument('-m', action='store_true', help='List MultiRBL zones')
+    args.add_argument('-l', action='store_true', help='List merged MultiRBL zones')
+    args.add_argument('-m', action='store_true', help='List only MultiRBL zones')
     args.add_argument('-v', action='store_true', help='Print verbose results')
     args.add_argument('host', type=str, nargs='?', help='FQDN or IP address to check')
     args = args.parse_args()
-
-    if args.host:
-        for addr in gethostbyname(args.host):
-            query(addr)
-    elif args.l:
-        zones()
-    elif args.m:
-        multirbl()
-    else:
-        sys.exit(f'{LRED}Please specify an IP address as a parameter.{NRML}')
+    if args.host: query(args.host)
+    elif  args.l: zones()
+    elif  args.m: multirbl(verbose=True)
+    else: sys.exit(f'{LRED}Please specify a FQDN or IP address as a parameter.{NRML}')
 
 #===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
 # EOF

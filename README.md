@@ -9,7 +9,9 @@ the [DNSBL][] sevices commonly subscribed by SPAM filters.
 
 ### Requires
 
-[Python 3.9+](https://www.python.org/dev/peps/pep-0584/) with [PyYAML](https://PyYAML.org).
+ - [Python 3.9+](https://www.python.org/dev/peps/pep-0584/)
+ - [dnspython2](https://www.dnspython.org/)
+ - [PyYAML](https://PyYAML.org)
 
 ### Installation
 
@@ -44,34 +46,50 @@ dnsbl -v 118.26.173.212
 ```
 
 ### Sample output
+```
+$ dnsbl -v 118.26.173.212
+...
+The DNS operation timed out after 5.001934766769409 seconds: A 212.173.26.118.ip.v4bl.org.
+The DNS query name does not exist: A 212.173.26.118.dnsbl.calivent.com.pe.
+The DNS response does not contain an answer to the question: A 212.173.26.118.forbidden.icm.edu.pl.
+The DNS query name does not exist: A 212.173.26.118.88.blocklist.zap.
+All nameservers failed to answer the query: A 212.173.26.118.black.mail.abusix.zone.
 
-    $ dnsbl -v 118.26.173.212
-    ...
-    [Errno 8] Name does not resolve [not listed] 212.173.26.118.black.mail.abusix.zone.
-    [Errno 8] Name does not resolve [not listed] 212.173.26.118.dblack.mail.abusix.zone.
-    [Errno 8] Name does not resolve [not listed] 212.173.26.118.exploit.mail.abusix.zone.
+	118.26.173.212 is BLACKLISTED:
 
-            118.26.173.212 is BLACKLISTED:
+https://MultiRBL.Valli.org/lookup/118.26.173.212.html
+https://HetrixTools.com/blacklist-check/118.26.173.212
 
-    https://MultiRBL.Valli.org/lookup/118.26.173.212.html
-    https://HetrixTools.com/blacklist-check/118.26.173.212
+Hostkarma blacklist
+http://wiki.junkemailfilter.com/index.php/Spam_DNS_Lists
+[127.0.1.1]	212.173.26.118.hostkarma.junkemailfilter.com.
+[127.0.0.3]	212.173.26.118.hostkarma.junkemailfilter.com.
 
-    Hostkarma blacklist
-    http://wiki.junkemailfilter.com/index.php/Spam_DNS_Lists
-    [127.0.1.1]     212.173.26.118.hostkarma.junkemailfilter.com.
-    [127.0.0.3]     212.173.26.118.hostkarma.junkemailfilter.com.
+Mailspike Rep
+http://mailspike.org/
+a=666;t=666;s=1628295936;r=2
+[127.0.0.17]	212.173.26.118.rep.mailspike.net.
 
-    Mailspike Rep
-    http://mailspike.org/
-    [127.0.0.17]    212.173.26.118.rep.mailspike.net.
+Barracuda Reputation Block List
+http://www.barracudacentral.org/rbl/
+http://www.barracudanetworks.com/reputation/?pr=1&ip=118.26.173.212
+[127.0.0.2]	212.173.26.118.b.barracudacentral.org.
 
-    Barracuda Reputation Block List
-    http://www.barracudacentral.org/rbl/
-    [127.0.0.2]     212.173.26.118.b.barracudacentral.org.
+Barracuda Reputation Block List (for SpamAssassin)
+http://www.barracudacentral.org/rbl/
+http://www.barracudanetworks.com/reputation/?pr=1&ip=118.26.173.212
+[127.0.0.2]	212.173.26.118.bb.barracudacentral.org.
+```
+Withouth the _verbose_ `-v` option only the BLACKLISTED section is printed
+if there is anything blacklisted, otherwise there is no output which makes
+`cron` happy.
 
-    Barracuda Reputation Block List (for SpamAssassin)
-    http://www.barracudacentral.org/rbl/
-    [127.0.0.2]     212.173.26.118.bb.barracudacentral.org.
+For each failed zone the BLACKLISTED section prints a label, any URLs
+associated with that blacklist and the returned error code(s). 
+
+All the error messages printed with the verbose `-v` option above the
+BLACKLISTED section indicate the IP address is **NOT** blacklisted in
+those zones.
 
 ### Blacklist providers
 
@@ -80,11 +98,11 @@ from scraping https://HetrixTools.com/blacklist-check/ then running
 `dnsbl -l` to merge http://MultiRBL.Valli.org/list/ "alive" zones and
 prune any zones from the "dead" section.
 
-Running `dnsbl -m` will output a YAML format listing of all the IPv4
+Running `dnsbl -m` will output a [YAML][] format listing of all the IPv4
 "blacklist" [DNSBL][] zones in the "alive" section of
 http://MultiRBL.Valli.org/list/
 
-Running `dnsbl -l` will output a YAML format listing of all the zones
+Running `dnsbl -l` will output a [YAML][] format listing of all the zones
 in the local `/etc/dnsbl.yml` file **plus** all the IPv4 "blacklist"
 [DNSBL][] zones in the "alive" section of http://MultiRBL.Valli.org/list/
 **minus** any matching [DNSBL][] zones from the "dead" section.
@@ -109,3 +127,4 @@ production `/etc/dnsbl.yml` as need be.
 [MIT](https://GitHub.com/yds/dnsbl/blob/master/LICENSE "MIT open source")
 
 [DNSBL]:https://en.wikipedia.org/wiki/Domain_Name_System-based_blackhole_list "Domain Name System-based blackhole list"
+[YAML]:https://YAML.org/ "YAML Ain't Markup Language™"
