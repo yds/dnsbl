@@ -82,16 +82,16 @@ http://www.barracudacentral.org/rbl/
 http://www.barracudanetworks.com/reputation/?pr=1&ip=118.26.173.212
 [127.0.0.2]	212.173.26.118.bb.barracudacentral.org.
 ```
-Withouth the _verbose_ `-v` option only the BLACKLISTED section is printed
-if there is anything blacklisted, otherwise there is no output which makes
-`cron` happy.
+Withouth the _verbose_ `-v` option only the BLACKLISTED section is
+printed if there is anything blacklisted, otherwise there is no
+output which makes `cron` happy.
 
-For each failed zone the BLACKLISTED section prints a label, any URLs
-associated with that blacklist and the returned error code(s). 
+For each failed zone the BLACKLISTED section prints a label, any
+URLs associated with that blacklist and the returned error code(s).
 
-All the error messages printed with the verbose `-v` option above the
-BLACKLISTED section indicate the IP address is **NOT** blacklisted in
-those zones.
+All the error messages printed with the _verbose_ `-v` option above
+the BLACKLISTED section indicate the IP address is **NOT** blacklisted
+in those zones.
 
 ### Blacklist providers
 
@@ -124,9 +124,8 @@ production `/etc/dnsbl.yml` as need be.
 [DNSBL][] zones to `query`. Optionally each `keys`' value _should_
 have a URL followed by a tab `\t` and a description of the [DNSBL][].
 The URL _may_ have a `{}` placeholder which if present will be
-replaced by the blacklisted IP address in the output.
-
-Standard [YAML][] comments and empty values are allowed.
+replaced by the blacklisted IP address in the output. Standard
+[YAML][] comments and empty values are allowed.
 
 Both `-l` and `-m` output a valid config file sorted by reverse
 domain name. This sorting groups related zones together and allows
