@@ -49,6 +49,8 @@ dnsbl -v 118.26.173.212
 ```
 $ dnsbl -v 118.26.173.212
 ...
+The DNS query name does not exist: A 212.173.26.118.black.junkemailfilter.com.
+The DNS response does not contain an answer to the question: TXT 212.173.26.118.hostkarma.junkemailfilter.com.
 The DNS operation timed out after 5.001934766769409 seconds: A 212.173.26.118.ip.v4bl.org.
 The DNS query name does not exist: A 212.173.26.118.dnsbl.calivent.com.pe.
 The DNS response does not contain an answer to the question: A 212.173.26.118.forbidden.icm.edu.pl.
@@ -115,6 +117,20 @@ diff -u /etc/dnsbl.yml /tmp/dnsbl.yml
 ```
 Otherwise you will see a unified `diff` which you can merge with your
 production `/etc/dnsbl.yml` as need be.
+
+### Config file format
+
+`/etc/dnsbl.yml` is a [YAML][] dict with the `keys` made up of
+[DNSBL][] zones to `query`. Optionally each `keys`' value _should_
+have a URL followed by a tab `\t` and a description of the [DNSBL][].
+The URL _may_ have a `{}` placeholder which if present will be
+replaced by the blacklisted IP address in the output.
+
+Standard [YAML][] comments and empty values are allowed.
+
+Both `-l` and `-m` output a valid config file sorted by reverse
+domain name. This sorting groups related zones together and allows
+for `diff`ing against the installed `/etc/dnsbl.yml` config file.
 
 ### Prior Art
 
