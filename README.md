@@ -46,7 +46,7 @@ dnsbl -v 118.26.173.212
 ```
 
 ### Sample output
-```
+```yaml
 $ dnsbl -v 118.26.173.212
 ...
 The DNS query name does not exist: A 212.173.26.118.black.junkemailfilter.com.
@@ -84,7 +84,7 @@ http://www.barracudanetworks.com/reputation/?pr=1&ip=118.26.173.212
 ```
 Withouth the _verbose_ `-v` option only the BLACKLISTED section is
 printed if there is anything blacklisted, otherwise there is no
-output which makes `cron` happy.
+output to keep `cron` quiet.
 
 For each failed zone the BLACKLISTED section prints a label, any
 URLs associated with that blacklist and the returned error code(s).
