@@ -9,8 +9,8 @@ the [DNSBL][] sevices commonly subscribed by SPAM filters.
 
 ### Requires
 
- - [Python 3.9+](https://www.python.org/dev/peps/pep-0584/)
- - [dnspython2](https://www.dnspython.org/)
+ - [Python 3.8+](https://www.python.org)
+ - [dnspython2](https://www.dnspython.org)
  - [PyYAML](https://PyYAML.org)
 
 ### Installation

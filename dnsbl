@@ -119,9 +119,9 @@ def multirbl(zones={}, verbose=False):
 #===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#===#
 def zones():
     '''dump sorted YAML of local DNSBL zones merged with current MultiRBL zones'''
-    multi = multirbl()                               # load all "alive" MultiRBL zones
-    zones = multi | yaml.load(open(conf), Loader=yaml.CSafeLoader) # merge local zones
-    zones = multirbl(zones=zones)                                 # prune "dead" zones
+    multi = multirbl()              # load all "alive" MultiRBL zones
+    zones = {**multi, **yaml.load(open(conf), Loader=yaml.CSafeLoader)} # merge local zones
+    zones = multirbl(zones=zones)   # prune "dead" zones
     for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
         if zones[zone]:
             zones[zone] = f' {zones[zone]}'
