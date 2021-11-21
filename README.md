@@ -25,7 +25,7 @@ chmod 0555 /usr/local/bin/dnsbl
 ### Usage
 
 Edit and install the included `crontab` file:
-```crontab
+```sh
 MAILFROM=BlackMail@example.com
 MAILTO=BlackMail@example.com
 PATH=~/bin:/usr/local/bin:/usr/bin:/bin
