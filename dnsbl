@@ -103,11 +103,11 @@ def multirbl(zones={}, verbose=False):
                 parse = False
                 table = False
             elif table:
-                if start == LIVE and zone[3] == 'ipv4' and zone[6] == 'b' and '.' in zone[2]:
+                if LIVE == start and zone[3] == 'ipv4' and zone[6] == 'b' and '.' in zone[2]:
                     zone[1] = zone[1].split('"')
                     zone[1][2] = zone[1][2][1:].split('<')[0].strip()
                     zones[zone[2]] = f'{zone[1][1]}\t{zone[1][2]}'
-                elif start == DEAD and zone[2] in zones:
+                elif DEAD == start and zone[2] in zones:
                     del zones[zone[2]]
             elif parse and zone[0] == '<table>':
                 table = True
