@@ -91,26 +91,28 @@ def multirbl(zones={}, verbose=False):
     '''dump sorted YAML of "alive" DNSBL zones from MultiRBL.Valli.org'''
     from urllib.request import urlopen
     from html.parser import unescape
+    LIVE = '<h2>alive'
+    DEAD = '<h2>dead'
     with urlopen('https://MultiRBL.Valli.org/list/') as multirbl:
-        start = '<h2>dead' if zones else '<h2>alive'
+        start = DEAD if zones else LIVE
         parse = False
         table = False
         for zone in multirbl:
             zone = unescape(zone.decode(encoding).strip()).split('</td><td>')
-            if zone[0].startswith(start):
-                parse = True
-            elif zone[0] == '</table>':
+            if table and zone[0] == '</table>':
                 parse = False
                 table = False
             elif table:
-                if start == '<h2>alive' and zone[3] == 'ipv4' and zone[6] == 'b' and '.' in zone[2]:
+                if start == LIVE and zone[3] == 'ipv4' and zone[6] == 'b' and '.' in zone[2]:
                     zone[1] = zone[1].split('"')
                     zone[1][2] = zone[1][2][1:].split('<')[0].strip()
                     zones[zone[2]] = f'{zone[1][1]}\t{zone[1][2]}'
-                elif start == '<h2>dead' and zone[2] in zones:
+                elif start == DEAD and zone[2] in zones:
                     del zones[zone[2]]
             elif parse and zone[0] == '<table>':
                 table = True
+            elif zone[0].startswith(start):
+                parse = True
     if verbose:
         for zone in sorted(zones.keys(), key=lambda k: tuple(reversed(k.split('.')))):
             print(f'{zone}: {zones[zone]}')
