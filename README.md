@@ -82,7 +82,7 @@ http://www.barracudacentral.org/rbl/
 http://www.barracudanetworks.com/reputation/?pr=1&ip=118.26.173.212
 [127.0.0.2]	212.173.26.118.bb.barracudacentral.org.
 ```
-Withouth the _verbose_ `-v` option only the BLACKLISTED section is
+Without the _verbose_ `-v` option only the BLACKLISTED section is
 printed if there is anything blacklisted, otherwise there is no
 output to keep `cron` quiet.
 
@@ -109,7 +109,7 @@ in the local `/etc/dnsbl.yml` file **plus** all the IPv4 "blacklist"
 [DNSBL][] zones in the "alive" section of http://MultiRBL.Valli.org/list/
 **minus** any matching [DNSBL][] zones from the "dead" section.
 
-If your `/etc/dnsbl.yml` is upto date then running the following should
+If your `/etc/dnsbl.yml` is up to date then running the following should
 **not** produce _any_ output:
 ```sh
 dnsbl -l > /tmp/dnsbl.yml
